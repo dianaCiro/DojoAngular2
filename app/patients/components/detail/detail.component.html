@@ -1,0 +1,68 @@
+<div *ngIf="patient">
+
+<div [hidden]="(name.valid || name.pristine) && (contact.valid || contact.pristine) && (address.valid || address.pristine)"
+           class="alert alert-danger">
+           <ul>
+               <li [hidden]="name.valid || name.pristine">Name is required</li>
+               <li [hidden]="contact.valid || contact.pristine">Contact is required</li>
+               <li [hidden]="address.valid || address.pristine">Address is required</li>
+           </ul>
+       </div>
+<!--
+<form action="" method="POST" role="form">
+-->
+<form #form="ngForm" (ngSubmit)="save()">
+    <legend>Form title</legend>
+    <div class="row">
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+            <div class="form-group">
+            <label for="">Name:</label>
+            <input [(ngModel)]="patient.name" name="name" #name="ngModel" class="form-control" placeholder="name" required maxlength="100">
+            </div>     
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+            <div class="form-group">
+            <label for="">Last Name:</label>
+            <input [(ngModel)]="patient.lastName" name="lastName" class="form-control" placeholder="Input field">
+            </div>     
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+            <div class="form-group">
+            <label for="">Priority:</label>
+            <input [(ngModel)]="patient.priority" name="priority" class="form-control" placeholder="Input field">
+            </div>     
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+            <div class="form-group">
+            <label for="">Status:</label>
+            <input [(ngModel)]="patient.status" name="status" class="form-control" placeholder="Input field">
+            </div>     
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+            <div class="form-group">
+            <label for="">Contact:</label>
+            <input [(ngModel)]="patient.contact" name="contact" #contact="ngModel" class="form-control" placeholder="Input field" required maxlength="100">
+            </div>     
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+            <div class="form-group">
+            <label for="">Address:</label>
+            <input [(ngModel)]="patient.address" name="address" #address="ngModel" class="form-control" placeholder="Input field" required maxlength="100">
+            </div>     
+        </div>
+    </div>
+    
+</form>
+<button type="submit" class="btn btn-primary">Submit</button>
+    <!--
+    <div class="form-group">
+        <label for="">label</label>
+        <input type="text" class="form-control" id="" placeholder="Input field">
+    </div>
+    -->
+    
+
+    
+</div>
